@@ -1,76 +1,280 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vivek Patel | Data & Lab Analyst</title>
+  <meta name="description" content="Chemical Laboratory Technologist & Certified Google Data Analyst. I analyze samples by day and data by night." />
+  <meta name="theme-color" content="#0ea5e9" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>👋 Hi, I'm Vivek Patel</h1>
-    <p>Certified Google Data Analyst + Chemical Lab Technologist</p>
+  <!-- Reading progress -->
+  <div id="progress"></div>
+
+  <!-- Top Nav -->
+  <nav class="topnav">
+    <div class="nav-inner container">
+      <a href="#top" class="brand"><span class="logo">👋</span><span>Vivek Patel</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+      <ul class="navlinks" id="navlinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="themeToggle" class="toggle" aria-label="Toggle theme"><span class="dot"></span><span>Theme</span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="top" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Hi, I'm Vivek Patel</h1>
+        <p class="subtitle">Certified Google Data Analyst • Chemical Lab Technologist</p>
+        <div class="cta">
+          <a href="#projects" class="btn">See Projects</a>
+          <a href="#contact" class="btn ghost">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-orb" aria-hidden="true"></div>
+    </div>
   </header>
 
-  <section class="about">
-    <h2>🪪 About Me</h2>
-    <p>Chemical Laboratory Technologist | Data Analytics.</p>
-    <p>I analyze samples by day and data by night.</p>
-  </section>
+  <main class="container">
 
-  <section class="projects">
-    <h2>🗂 Projects</h2>
-    
-    <div class="project">
-      <a href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-NaOH-Ethanol-Study-Paper" target="_blank">
-        <h3>📄 Acid Number in Bitumen – NaOH–Ethanol Study Paper</h3>
-        <p>Technical study paper evaluating NaOH–ethanol as a practical alternative to ASTM D664 for acid number determination in bitumen. Includes method setup, QC trends, matrix spike recovery, and solvent considerations.</p>
-      </a>
-    </div>
+    <!-- About -->
+    <section id="about" class="about card reveal">
+      <h2><span class="dot"></span>🪪 About Me</h2>
+      <p>Chemical Laboratory Technologist | Data Analytics.</p>
+      <p>I analyze samples by day and data by night.</p>
+    </section>
 
-    <div class="project">
-      <a href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-by-NaOH-Ethanol-2508a408c92680aa85e9c399fcadd3ce?source=copy_link" target="_blank">
-        <h3>🧪 TCE vs Toluene Research Article</h3>
-        <p>In-depth experimental comparison of TCE and Toluene for oil & grease and UVF analysis. Includes method design, results, FTIR challenges, and safer solvent alternatives.</p>
-      </a>
-    </div>
+    <!-- Projects -->
+    <section id="projects" class="projects card reveal">
+      <h2><span class="dot"></span>🗂 Projects</h2>
 
-    <div class="project">
-      <a href="https://nba-simulator.streamlit.app" target="_blank">
-        <h3>🏀 NBA 5v5 Stat-Based Simulator</h3>
-        <p>Simulate games based on real NBA stats using a Flask + Streamlit app with player dropdowns and smart logic.</p>
-      </a>
-    </div>
+      <!-- Filter chips -->
+      <div class="filters" role="tablist" aria-label="Project filters">
+        <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-filter="chemistry" role="tab">Chemistry</button>
+        <button class="chip" data-filter="basketball" role="tab">Basketball</button>
+        <button class="chip" data-filter="cricket" role="tab">Cricket</button>
+        <button class="chip" data-filter="article" role="tab">Article</button>
+        <button class="chip" data-filter="app" role="tab">App</button>
+      </div>
 
-    <div class="project">
-      <a href="https://cricsimulator.streamlit.app" target="_blank">
-        <h3>🏏 Cricket Score Projector</h3>
-        <p>Project second innings par scores with smart logic on Streamlit.</p>
-      </a>
-    </div>
+      <div class="project-list">
+        <article class="project reveal" data-tags="chemistry,article,method">
+          <div class="badges"><span class="badge">Chemistry</span><span class="badge">Method Dev</span><span class="badge">Article</span></div>
+          <h3>
+            <a href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-NaOH-Ethanol-Study-Paper" target="_blank" rel="noopener">
+              📄 Acid Number in Bitumen – NaOH–Ethanol Study Paper
+            </a>
+          </h3>
+          <p class="clamp">
+            Technical study evaluating NaOH–ethanol as a practical alternative to ASTM D664 for acid number
+            determination in bitumen. Includes method setup, QC trends, matrix spike recovery, and solvent considerations.
+          </p>
+          <div class="actions">
+            <a class="btn tiny" target="_blank" rel="noopener" href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-NaOH-Ethanol-Study-Paper">View</a>
+            <button class="btn tiny ghost more-btn" type="button">Read more</button>
+          </div>
+        </article>
 
-    <div class="project">
-      <a href="https://medium.com/@vivekjpatel12/ipl-powerplay-paradox-1b043ea452d0" target="_blank">
-        <h3>📊 IPL Powerplay Analysis (Medium Article)</h3>
-        <p>Deep analysis of powerplay trends in IPL cricket, including comeback probabilities, collapse patterns, and toss impacts using real data visualizations.</p>
-      </a>
-    </div>
-  </section>
+        <article class="project reveal" data-tags="chemistry,article">
+          <div class="badges"><span class="badge">Chemistry</span><span class="badge">Solvent Safety</span><span class="badge">Article</span></div>
+          <h3>
+            <a href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-by-NaOH-Ethanol-2508a408c92680aa85e9c399fcadd3ce?source=copy_link" target="_blank" rel="noopener">
+              🧪 TCE vs Toluene Research Article
+            </a>
+          </h3>
+          <p class="clamp">
+            In-depth comparison of TCE and Toluene for oil &amp; grease and UVF analysis. Method design, results,
+            FTIR challenges, and safer solvent alternatives.
+          </p>
+          <div class="actions">
+            <a class="btn tiny" target="_blank" rel="noopener" href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-by-NaOH-Ethanol-2508a408c92680aa85e9c399fcadd3ce?source=copy_link">View</a>
+            <button class="btn tiny ghost more-btn" type="button">Read more</button>
+          </div>
+        </article>
 
-  <section class="certs">
-    <h2>📜 Certifications</h2>
-    <ul>
-      <li>Google Data Analytics Certificate</li>
-      <li>Sports Analytics Certificate – Rajasthan Royals</li>
-      <li>Basketball Data Analytics - Sport Coach Academy</li>
-    </ul>
-  </section>
+        <article class="project reveal" data-tags="basketball,app">
+          <div class="badges"><span class="badge">Basketball</span><span class="badge">App</span></div>
+          <h3>
+            <a href="https://nba-simulator.streamlit.app" target="_blank" rel="noopener">
+              🏀 NBA 5v5 Stat-Based Simulator
+            </a>
+          </h3>
+          <p class="clamp">
+            Simulate games using real NBA stats with a Flask + Streamlit app featuring player dropdowns and smart logic.
+          </p>
+          <div class="actions">
+            <a class="btn tiny" target="_blank" rel="noopener" href="https://nba-simulator.streamlit.app">Open App</a>
+            <button class="btn tiny ghost more-btn" type="button">Read more</button>
+          </div>
+        </article>
 
-  <footer>
-    <p>🌐 Connect: 
-      <a href="https://github.com/vivekpatel25" target="_blank">GitHub</a> | 
-      <a href="https://linkedin.com/in/vivekpatel25" target="_blank">LinkedIn</a>
-    </p>
-  </footer>
+        <article class="project reveal" data-tags="cricket,app">
+          <div class="badges"><span class="badge">Cricket</span><span class="badge">Model</span><span class="badge">App</span></div>
+          <h3>
+            <a href="https://cricsimulator.streamlit.app" target="_blank" rel="noopener">
+              🏏 Cricket Score Projector
+            </a>
+          </h3>
+          <p class="clamp">
+            Second-innings par score projections with Streamlit and simple heuristics.
+          </p>
+          <div class="actions">
+            <a class="btn tiny" target="_blank" rel="noopener" href="https://cricsimulator.streamlit.app">Open App</a>
+            <button class="btn tiny ghost more-btn" type="button">Read more</button>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="cricket,article">
+          <div class="badges"><span class="badge">Cricket</span><span class="badge">Article</span></div>
+          <h3>
+            <a href="https://medium.com/@vivekjpatel12/ipl-powerplay-paradox-1b043ea452d0" target="_blank" rel="noopener">
+              📊 IPL Powerplay Analysis (Medium Article)
+            </a>
+          </h3>
+          <p class="clamp">
+            Deep analysis of IPL powerplay trends—comeback probabilities, collapse patterns, and toss impacts—with data visualizations.
+          </p>
+          <div class="actions">
+            <a class="btn tiny" target="_blank" rel="noopener" href="https://medium.com/@vivekjpatel12/ipl-powerplay-paradox-1b043ea452d0">Read</a>
+            <button class="btn tiny ghost more-btn" type="button">Read more</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs" class="certs card reveal">
+      <h2><span class="dot"></span>📜 Certifications</h2>
+      <ul>
+        <li>Google Data Analytics Certificate</li>
+        <li>Sports Analytics Certificate — Rajasthan Royals</li>
+        <li>Basketball Data Analytics — Sport Coach Academy</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact card reveal">
+      <h2><span class="dot"></span>📬 Contact</h2>
+      <p>Want to collaborate on chemistry or sports analytics?</p>
+      <div class="cta">
+        <a class="btn" href="mailto:vivekjpatel12@gmail.com">Email Me</a>
+        <a class="btn ghost" href="https://linkedin.com/in/vivekpatel25" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/vivekpatel25" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <footer class="site-footer card">
+      <p>© <span id="year"></span> Vivek Patel</p>
+    </footer>
+  </main>
+
+  <!-- Back to top -->
+  <button id="toTop" class="to-top" aria-label="Back to top">↑</button>
+
+  <!-- Scripts: theme, filters, reveal, scrollspy, progress, misc -->
+  <script>
+    // Persisted theme toggle
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') root.classList.add('theme-dark');
+    document.getElementById('themeToggle').onclick = () => {
+      root.classList.toggle('theme-dark');
+      localStorage.setItem('theme', root.classList.contains('theme-dark') ? 'dark' : 'auto');
+    };
+
+    // Mobile nav
+    const burger = document.getElementById('hamburger');
+    const links = document.getElementById('navlinks');
+    burger.onclick = () => {
+      const open = links.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    // Close nav on link click (mobile)
+    [...links.querySelectorAll('a')].forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Smooth scroll (CSS handles most; ensure hash updates reliably)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1 && document.querySelector(id)){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+          history.pushState(null, '', id);
+        }
+      });
+    });
+
+    // Filter chips
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.project');
+    chips.forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        chips.forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        const f = chip.dataset.filter;
+        cards.forEach(card=>{
+          const tags = card.dataset.tags.split(',');
+          const show = f==='all' || tags.includes(f);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // Expand/collapse blurbs
+    document.querySelectorAll('.more-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const p = btn.closest('.project').querySelector('.clamp');
+        p.classList.toggle('expanded');
+        btn.textContent = p.classList.contains('expanded') ? 'Show less' : 'Read more';
+      });
+    });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target); // reveal once
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal, .project.reveal').forEach(el=>io.observe(el));
+
+    // Scroll spy
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navA = [...document.querySelectorAll('.navlinks a')];
+    const spy = new IntersectionObserver(entries=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting){
+          const id = '#' + ent.target.id;
+          navA.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===id));
+        }
+      });
+    }, {rootMargin: '-50% 0px -45% 0px', threshold: 0});
+    sections.forEach(s=>spy.observe(s));
+
+    // Reading progress + back-to-top
+    const progress = document.getElementById('progress');
+    const toTop = document.getElementById('toTop');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop)/(h.scrollHeight - h.clientHeight);
+      progress.style.transform = `scaleX(${Math.max(0, Math.min(1, scrolled))})`;
+      toTop.classList.toggle('show', h.scrollTop > 600);
+    };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    toTop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
