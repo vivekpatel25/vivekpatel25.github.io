@@ -13,19 +13,33 @@
   <div id="progress"></div>
 
   <!-- Top Nav -->
-  <nav class="topnav">
-    <div class="nav-inner container">
-      <a href="#top" class="brand"><span class="logo">👋</span><span>Vivek Patel</span></a>
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
-      <ul class="navlinks" id="navlinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certs">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="themeToggle" class="toggle" aria-label="Toggle theme"><span class="dot"></span><span>Theme</span></button></li>
-      </ul>
+<nav class="topnav">
+  <div class="nav-inner container">
+    <a href="#top" class="brand"><span class="logo">👋</span><span>Vivek Patel</span></a>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="themeToggle" class="toggle" aria-label="Toggle theme"><span class="dot"></span><span>Theme</span></button></li>
+    </ul>
+
+    <!-- THIS BLOCK must be here -->
+    <div class="profile-toggle nav-avatar">
+      <div class="profile">
+        <img src="assets/IMG_3269.jpeg"    alt="Vivek in the lab"        class="photo photo-lab visible">
+        <img src="assets/IMG_3268.jpeg" alt="Vivek in Huskies hoodie" class="photo photo-sports">
+      </div>
+      <div class="modes" role="tablist" aria-label="Profile mode">
+        <button class="mode-btn active" role="tab" aria-selected="true"  data-mode="lab">Lab</button>
+        <button class="mode-btn"        role="tab" aria-selected="false" data-mode="sports">Sports</button>
+      </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Hero -->
   <header id="top" class="hero">
