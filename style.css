@@ -10,7 +10,7 @@ html,body{margin:0;padding:0}
   --ease: cubic-bezier(.2,.8,.2,1);
 }
 
-/* Light mode (auto). Manual override via .theme-dark */
+/* Light mode (auto) */
 @media (prefers-color-scheme: light){
   :root{
     --bg:#f6f7fb; --bg-2:#eef1f7; --text:#0e1726; --muted:#495566;
@@ -57,32 +57,32 @@ body::before{
 .navlinks a.active{background:rgba(125,211,252,.22)}
 .hamburger{display:none; background:var(--card); border:1px solid var(--card-border); color:var(--text); border-radius:12px; padding:8px 12px}
 
-/* ===== Hero (avatar sits to the right of heading) ===== */
-.hero{position:relative; overflow:hidden; padding:72px 0 36px}
-.hero-inner{display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap}
+/* ===== Hero (compact; avatar at right) ===== */
+.hero{position:relative; overflow:hidden; padding:28px 0 14px}
+.hero-inner{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap}
 .hero-text{flex:1 1 520px}
 .hero h1{
-  margin:0 0 6px 0; font-size:clamp(32px,4.4vw,44px); font-weight:800;
+  margin:0 0 4px 0; font-size:clamp(26px,3.6vw,34px); line-height:1.2; font-weight:800;
   background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; color:transparent;
 }
-.subtitle{margin:0 0 2px 0; color:var(--muted); font-size:clamp(15px,1.4vw,18px)}
+.subtitle{margin:2px 0 0; color:var(--muted); font-size:clamp(14px,1.2vw,16px)}
 
 /* ===== Small Profile toggle (hero) ===== */
 .profile-toggle.hero-avatar{ flex:0 0 auto; text-align:center; align-self:flex-start; }
 .profile{
-  position:relative; width:120px; height:120px; border-radius:50%;
+  position:relative; width:86px; height:86px; border-radius:50%;
   overflow:hidden; border:1px solid var(--card-border); box-shadow:var(--shadow); background:var(--card);
-  margin:0 auto 8px;
+  margin:0 auto 6px;
 }
 .profile .photo{
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:50%;
   opacity:0; transition:opacity .45s var(--ease);
 }
 .profile .photo.visible{ opacity:1; }
-.modes{ display:flex; gap:6px; background:var(--card); border:1px solid var(--card-border); border-radius:999px; padding:2px 4px; }
+.modes{ display:flex; gap:4px; background:var(--card); border:1px solid var(--card-border); border-radius:999px; padding:2px 4px; }
 .mode-btn{
-  padding:3px 8px; border-radius:999px; border:0; cursor:pointer;
-  background:transparent; color:var(--text); font-weight:600; font-size:.78rem;
+  padding:2px 6px; border-radius:999px; border:0; cursor:pointer;
+  background:transparent; color:var(--text); font-weight:600; font-size:.7rem;
 }
 .mode-btn.active{ background:rgba(125,211,252,.22); }
 .mode-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
@@ -93,22 +93,11 @@ h2{display:flex; align-items:center; gap:8px; margin:0 0 10px 0}
 h2 .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(90deg,var(--accent),var(--accent-2))}
 
 /* ===== Projects ===== */
-.filters{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 12px}
-.chip{padding:6px 12px; border-radius:999px; border:1px solid var(--card-border); background:rgba(255,255,255,.05); color:var(--text); cursor:pointer}
-.chip.active{outline:2px solid rgba(125,211,252,.5)}
-.project-list{display:grid; gap:14px}
 .project{padding:16px; border-radius:16px; border:1px solid var(--card-border); background:rgba(255,255,255,.04); transition:transform .22s var(--ease), border-color .22s var(--ease), background .22s var(--ease)}
 .project:hover{transform:translateY(-2px); border-color:rgba(125,211,252,.35); background:rgba(125,211,252,.06)}
 .project h3, .project h4{margin:6px 0 8px; font-size:18px}
 .project a{text-decoration:none; color:var(--text); border-bottom:1px dashed transparent}
 .project a:hover{color:var(--link); border-color:var(--link)}
-.project .badges{margin-bottom:6px}
-.badge{display:inline-block; font-size:12px; padding:4px 10px; border-radius:999px; margin-right:6px; background:rgba(255,255,255,.08); border:1px solid var(--card-border); color:var(--muted)}
-.project .actions{margin-top:10px; display:flex; gap:8px}
-
-/* clamp + expand */
-.clamp{display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; color:var(--muted)}
-.clamp.expanded{-webkit-line-clamp:unset}
 
 /* ===== Lists & footer ===== */
 ul{padding-left:18px}
@@ -125,6 +114,7 @@ ul{padding-left:18px}
 /* ===== Responsive ===== */
 @media (max-width:860px){
   .hero-inner{flex-direction:column; text-align:center}
+  .profile{width:78px; height:78px}
 }
 @media (max-width:760px){
   .hamburger{display:block}
@@ -132,25 +122,4 @@ ul{padding-left:18px}
   .navlinks.open{display:flex}
   .navlinks li{width:100%}
   .navlinks a, .navlinks .toggle{width:100%; display:flex; justify-content:center}
-}
-/* === COMPACT HERO + SMALL AVATAR (overrides) === */
-.hero{ padding:28px 0 12px !important; }
-.hero-inner{ gap:16px !important; align-items:flex-start !important; }
-.hero h1{ font-size:clamp(26px,3.6vw,34px) !important; line-height:1.2; margin-bottom:4px !important; }
-.subtitle{ margin:2px 0 0 !important; font-size:clamp(14px,1.2vw,16px) !important; color:var(--muted); }
-
-/* small circle + compact toggle */
-.profile-toggle.hero-avatar .profile{ width:86px !important; height:86px !important; }
-.profile-toggle.hero-avatar .modes{
-  padding:2px 4px !important; gap:4px !important; transform:translateY(-2px);
-}
-.profile-toggle.hero-avatar .mode-btn{
-  font-size:.7rem !important; padding:2px 6px !important;
-}
-
-/* mobile: keep it tidy */
-@media (max-width:860px){
-  .hero{ padding:20px 0 8px !important; }
-  .hero-inner{ flex-direction:column; align-items:center !important; text-align:center; }
-  .profile-toggle.hero-avatar .profile{ width:78px !important; height:78px !important; }
 }
