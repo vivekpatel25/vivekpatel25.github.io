@@ -99,7 +99,7 @@ body::before{
 /* LAB — left */
 .hero::before{
   left: 0;
-  background-image: url("assets/lab.jpg");
+  background-image: url("assets/IMG_3269.jpeg");
   /* soften toward the middle */
   mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
@@ -108,7 +108,7 @@ body::before{
 /* HUSKIES — right */
 .hero::after{
   right: 0;
-  background-image: url("assets/hoodie.jpg");
+  background-image: url("assets/IMG_3268.jpeg");
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
 }
