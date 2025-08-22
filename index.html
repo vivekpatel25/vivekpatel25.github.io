@@ -29,7 +29,7 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero (compact, avatar to the right of headline) -->
   <header id="top" class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
@@ -37,7 +37,7 @@
         <p class="subtitle">Certified Google Data Analyst • Chemical Lab Technologist</p>
       </div>
 
-      <!-- Small profile image + mode toggle (to the right of the heading) -->
+      <!-- Small circular avatar + mode toggle -->
       <div class="profile-toggle hero-avatar">
         <div class="profile">
           <img src="assets/IMG_3269.jpeg" alt="Vivek in the lab" class="photo photo-lab visible">
@@ -216,10 +216,7 @@
         });
         localStorage.setItem('profileMode', mode);
       }
-
-      // Init from saved preference
       setMode(localStorage.getItem('profileMode') || 'lab');
-
       btns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
     })();
   </script>
