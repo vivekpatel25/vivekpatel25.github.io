@@ -133,3 +133,24 @@ ul{padding-left:18px}
   .navlinks li{width:100%}
   .navlinks a, .navlinks .toggle{width:100%; display:flex; justify-content:center}
 }
+/* === COMPACT HERO + SMALL AVATAR (overrides) === */
+.hero{ padding:28px 0 12px !important; }
+.hero-inner{ gap:16px !important; align-items:flex-start !important; }
+.hero h1{ font-size:clamp(26px,3.6vw,34px) !important; line-height:1.2; margin-bottom:4px !important; }
+.subtitle{ margin:2px 0 0 !important; font-size:clamp(14px,1.2vw,16px) !important; color:var(--muted); }
+
+/* small circle + compact toggle */
+.profile-toggle.hero-avatar .profile{ width:86px !important; height:86px !important; }
+.profile-toggle.hero-avatar .modes{
+  padding:2px 4px !important; gap:4px !important; transform:translateY(-2px);
+}
+.profile-toggle.hero-avatar .mode-btn{
+  font-size:.7rem !important; padding:2px 6px !important;
+}
+
+/* mobile: keep it tidy */
+@media (max-width:860px){
+  .hero{ padding:20px 0 8px !important; }
+  .hero-inner{ flex-direction:column; align-items:center !important; text-align:center; }
+  .profile-toggle.hero-avatar .profile{ width:78px !important; height:78px !important; }
+}
