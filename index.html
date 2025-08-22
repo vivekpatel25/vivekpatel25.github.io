@@ -26,18 +26,6 @@
         <li><a href="#contact">Contact</a></li>
         <li><button id="themeToggle" class="toggle" aria-label="Toggle theme"><span class="dot"></span><span>Theme</span></button></li>
       </ul>
-
-      <!-- Compact avatar + Lab/Sports toggle in the nav -->
-      <div class="profile-toggle nav-avatar">
-        <div class="profile">
-          <img src="assets/IMG_3269.jpeg" alt="Vivek in the lab" class="photo photo-lab visible">
-          <img src="assets/IMG_3268.jpeg" alt="Vivek in Huskies hoodie" class="photo photo-sports">
-        </div>
-        <div class="modes" role="tablist" aria-label="Profile mode">
-          <button class="mode-btn active" role="tab" aria-selected="true"  data-mode="lab">Lab</button>
-          <button class="mode-btn"        role="tab" aria-selected="false" data-mode="sports">Sports</button>
-        </div>
-      </div>
     </div>
   </nav>
 
@@ -47,6 +35,18 @@
       <div class="hero-text">
         <h1>Hi, I'm Vivek Patel</h1>
         <p class="subtitle">Certified Google Data Analyst • Chemical Lab Technologist</p>
+      </div>
+
+      <!-- Small profile image + mode toggle (to the right of the heading) -->
+      <div class="profile-toggle hero-avatar">
+        <div class="profile">
+          <img src="assets/IMG_3269.jpeg" alt="Vivek in the lab" class="photo photo-lab visible">
+          <img src="assets/IMG_3268.jpeg" alt="Vivek in Huskies hoodie" class="photo photo-sports">
+        </div>
+        <div class="modes" role="tablist" aria-label="Profile mode">
+          <button class="mode-btn active" role="tab" aria-selected="true"  data-mode="lab">Lab</button>
+          <button class="mode-btn"        role="tab" aria-selected="false" data-mode="sports">Sports</button>
+        </div>
       </div>
     </div>
   </header>
