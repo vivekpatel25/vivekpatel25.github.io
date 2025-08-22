@@ -48,7 +48,7 @@ body::before{
 
 /* ===== Top nav ===== */
 .topnav{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,0));}
-.nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; position:relative}
 .brand{display:flex; align-items:center; gap:10px; font-weight:700; text-decoration:none; color:var(--text)}
 .brand .logo{font-size:22px}
 .navlinks{display:flex; align-items:center; gap:14px; list-style:none; margin:0; padding:10px 0}
@@ -69,46 +69,15 @@ body::before{
 .btn.ghost{background:transparent}
 .btn.tiny{padding:6px 10px; font-size:13px}
 
-
-/* Subtle center veil to ensure headline contrast */
-.hero::marker{ display:none; } /* just to avoid Safari quirks */
-.hero > .veil{ display:none; }  /* placeholder if you had one */
-.hero::selection{ background:transparent; }
-
 /* A gentle center gradient overlay for readability */
-.hero::after,
-.hero::before{
-  /* keep the images slightly dimmer in dark mode automatically */
-}
-.hero::after + .center-fade{ display:none; }
-
 .hero .hero-text{ position: relative; }
-
-/* Add a middle overlay using an extra pseudo-element on the container */
 .hero .hero-inner::after{
-  content:"";
-  position: absolute;
-  inset: -20px;                  /* bleed a bit to avoid edges */
-  z-index: -1;                   /* behind text, above photos */
-  background:
-    radial-gradient(60% 50% at 50% 50%, rgba(0,0,0,.35), transparent 60%);
-  pointer-events: none;
+  content:""; position:absolute; inset:-20px; z-index:-1;
+  background: radial-gradient(60% 50% at 50% 50%, rgba(0,0,0,.35), transparent 60%);
+  pointer-events:none;
 }
 
-/* ---------- Responsive tweaks ---------- */
-@media (max-width: 860px){
-  .hero{ min-height: clamp(320px, 48vh, 520px); }
-  .hero::before, .hero::after{ width: 60%; opacity: .28; }
-}
-@media (max-width: 560px){
-  /* On small screens let each photo take more room but fade more */
-  .hero::before, .hero::after{ width: 65%; opacity: .24; }
-  /* slightly stronger center veil for small screens */
-  .hero .hero-inner::after{
-    background: radial-gradient(70% 55% at 50% 50%, rgba(0,0,0,.42), transparent 60%);
-  }
-}
-
+/* Old orb (kept but not used) */
 .hero-orb{width:320px; height:320px; border-radius:50%;
   background:radial-gradient(circle at 30% 30%, rgba(125,211,252,.7), rgba(192,132,252,.6) 45%, transparent 60%);
   filter:blur(18px); animation:float 10s ease-in-out infinite alternate; justify-self:end}
@@ -165,126 +134,57 @@ ul{padding-left:18px}
   .navlinks li{width:100%}
   .navlinks a, .navlinks .toggle{width:100%; display:flex; justify-content:center}
 }
-/* ===== Morphing profile (hero) ===== */
-.profile-toggle{
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:10px;
+
+/* ============================
+   Avatar Morphing in the Nav (Option B)
+   ============================ */
+
+/* The avatar block must be inside .nav-inner and have .nav-avatar */
+.profile-toggle.nav-avatar{
+  position:absolute;
+  right:0;                 /* align to right edge of nav */
+  bottom:-72px;            /* hangs just below nav */
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:6px;
+  z-index:20;
 }
 
-.profile{
-  position:relative;
-  width:min(220px, 32vw); height:min(220px, 32vw);
-  border-radius:50%;
-  overflow:hidden;
+/* Circle image container */
+.profile-toggle.nav-avatar .profile{
+  width:88px; height:88px; border-radius:50%;
+  overflow:hidden; position:relative;
   border:1px solid var(--card-border);
-  box-shadow: var(--shadow);
-  background: var(--card);
+  box-shadow:0 2px 6px rgba(0,0,0,.3);
+  background:var(--card);
 }
 
-.profile .photo{
+/* Two stacked photos for crossfade */
+.profile-toggle.nav-avatar .photo{
   position:absolute; inset:0;
-  width:100%; height:100%; object-fit:cover;
-  opacity:0; transform: scale(1.02);
-  transition: opacity .45s var(--ease), transform .45s var(--ease);
+  width:100%; height:100%; object-fit:cover; border-radius:50%;
+  opacity:0; transition:opacity .5s ease-in-out;
 }
-.profile .photo.visible{ opacity:1; transform: scale(1); }
+.profile-toggle.nav-avatar .photo.visible{ opacity:1; }
 
-.modes{
-  display:flex; gap:8px; background:var(--card);
-  border:1px solid var(--card-border); border-radius:999px; padding:4px;
+/* Lab | Sports toggle */
+.profile-toggle.nav-avatar .modes{
+  display:flex; gap:6px;
+  background:rgba(255,255,255,.08);
+  border-radius:20px; padding:3px 6px; margin-top:4px;
 }
-.mode-btn{
-  padding:6px 12px; border-radius:999px; border:0; cursor:pointer;
-  background:transparent; color:var(--text); font-weight:600;
+.profile-toggle.nav-avatar .mode-btn{
+  border:none; background:transparent; color:#ddd;
+  font-size:.8rem; padding:3px 8px; border-radius:12px; cursor:pointer;
+  transition:background .3s, color .3s;
 }
-.mode-btn.active{ background:rgba(125,211,252,.22); }
-.mode-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.profile-toggle.nav-avatar .mode-btn.active{ background:#2563eb; color:#fff; }
 
-@media (max-width:760px){
-  /* Stack hero text over photo nicely on mobile */
-  .hero-inner{ grid-template-columns:1fr; gap:14px; }
-}
-/* ------------------------- */
-/* Avatar Morphing in Nav    */
-/* ------------------------- */
+/* Give hero breathing room so content doesn't collide with avatar */
+.hero{ padding-top:28px; }
 
-/* Make nav a positioning container */
-.nav-inner {
-  position: relative;
-}
-
-/* Position the avatar under the Theme toggle */
-.profile-toggle.nav-avatar {
-  position: absolute;
-  right: 0;                /* hug right edge of nav */
-  bottom: -72px;           /* hangs slightly below nav */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-  z-index: 20;
-}
-
-/* Circle profile image */
-.profile-toggle.nav-avatar .profile {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  position: relative;
-}
-
-/* Photos stacked for morphing */
-.profile-toggle.nav-avatar .photo {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.profile-toggle.nav-avatar .photo.visible {
-  opacity: 1;
-}
-
-/* Lab / Sports buttons */
-.profile-toggle.nav-avatar .modes {
-  display: flex;
-  gap: 6px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 3px 6px;
-  margin-top: 4px;
-}
-
-.profile-toggle.nav-avatar .mode-btn {
-  border: none;
-  background: transparent;
-  color: #ddd;
-  font-size: 0.8rem;
-  padding: 3px 8px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-}
-
-.profile-toggle.nav-avatar .mode-btn.active {
-  background: #2563eb;   /* blue highlight */
-  color: #fff;
-}
-
-/* Give hero more top space so it doesn't collide */
-.hero {
-  padding-top: 28px;
-}
-
-/* Hide avatar on smaller screens */
-@media (max-width: 900px) {
-  .profile-toggle.nav-avatar {
-    display: none;
-  }
+/* Hide avatar on smaller screens for cleanliness */
+@media (max-width:900px){
+  .profile-toggle.nav-avatar{ display:none; }
 }
