@@ -204,3 +204,87 @@ ul{padding-left:18px}
   /* Stack hero text over photo nicely on mobile */
   .hero-inner{ grid-template-columns:1fr; gap:14px; }
 }
+/* ------------------------- */
+/* Avatar Morphing in Nav    */
+/* ------------------------- */
+
+/* Make nav a positioning container */
+.nav-inner {
+  position: relative;
+}
+
+/* Position the avatar under the Theme toggle */
+.profile-toggle.nav-avatar {
+  position: absolute;
+  right: 0;                /* hug right edge of nav */
+  bottom: -72px;           /* hangs slightly below nav */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  z-index: 20;
+}
+
+/* Circle profile image */
+.profile-toggle.nav-avatar .profile {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Photos stacked for morphing */
+.profile-toggle.nav-avatar .photo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.profile-toggle.nav-avatar .photo.visible {
+  opacity: 1;
+}
+
+/* Lab / Sports buttons */
+.profile-toggle.nav-avatar .modes {
+  display: flex;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 3px 6px;
+  margin-top: 4px;
+}
+
+.profile-toggle.nav-avatar .mode-btn {
+  border: none;
+  background: transparent;
+  color: #ddd;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.profile-toggle.nav-avatar .mode-btn.active {
+  background: #2563eb;   /* blue highlight */
+  color: #fff;
+}
+
+/* Give hero more top space so it doesn't collide */
+.hero {
+  padding-top: 28px;
+}
+
+/* Hide avatar on smaller screens */
+@media (max-width: 900px) {
+  .profile-toggle.nav-avatar {
+    display: none;
+  }
+}
