@@ -29,27 +29,39 @@
     </div>
   </nav>
 
-  <!-- Hero (compact, avatar to the right of headline) -->
-  <header id="top" class="hero">
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <h1>Hi, I'm Vivek Patel</h1>
-        <p class="subtitle">Certified Google Data Analyst • Chemical Lab Technologist</p>
-      </div>
+  <section class="hero">
+  <div class="hero-text">
+    <h1>Hi, I'm Vivek Patel</h1>
+    <p>Certified Google Data Analyst • Chemical Lab Technologist</p>
+  </div>
 
-      <!-- Small circular avatar + mode toggle -->
-      <div class="profile-toggle hero-avatar">
-        <div class="profile">
-          <img src="assets/IMG_3269.jpeg" alt="Vivek in the lab" class="photo photo-lab visible">
-          <img src="assets/IMG_3268.jpeg" alt="Vivek in Huskies hoodie" class="photo photo-sports">
-        </div>
-        <div class="modes" role="tablist" aria-label="Profile mode">
-          <button class="mode-btn active" role="tab" aria-selected="true"  data-mode="lab">Lab</button>
-          <button class="mode-btn"        role="tab" aria-selected="false" data-mode="sports">Sports</button>
-        </div>
-      </div>
+  <div class="hero-image">
+    <img id="profileImage" src="assets/lab.jpg" alt="Profile">
+    <div class="toggle-buttons">
+      <button onclick="setImage('lab')" class="active">Lab</button>
+      <button onclick="setImage('sports')">Sports</button>
     </div>
-  </header>
+  </div>
+</section>
+
+<script>
+  function setImage(type) {
+    const img = document.getElementById("profileImage");
+    const labBtn = document.querySelector(".toggle-buttons button:nth-child(1)");
+    const sportsBtn = document.querySelector(".toggle-buttons button:nth-child(2)");
+
+    if (type === "lab") {
+      img.src = "assets/lab.jpg";
+      labBtn.classList.add("active");
+      sportsBtn.classList.remove("active");
+    } else {
+      img.src = "assets/sports.jpg";
+      sportsBtn.classList.add("active");
+      labBtn.classList.remove("active");
+    }
+  }
+</script>
+
 
   <main class="container">
     <!-- About -->
