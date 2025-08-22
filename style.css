@@ -68,6 +68,89 @@ body::before{
 .btn:hover{transform:translateY(-1px)}
 .btn.ghost{background:transparent}
 .btn.tiny{padding:6px 10px; font-size:13px}
+/* ---------- Split Hero Background (Lab left / Huskies right) ---------- */
+.hero{
+  position: relative;
+  overflow: hidden;              /* keeps the images clipped inside */
+  min-height: clamp(360px, 56vh, 640px);
+}
+
+/* Put the text above the backgrounds */
+.hero .hero-inner{ position: relative; z-index: 2; }
+
+/* Optional: remove old glow/orb if present */
+.hero-orb{ display: none !important; }
+
+/* Left image (Lab) */
+.hero::before,
+.hero::after{
+  content:"";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 55%;                    /* each side owns ~half the hero */
+  background-position: center;
+  background-size: cover;
+  filter: saturate(0.95) contrast(0.98);
+  opacity: .35;                  /* fade so text remains readable */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* LAB — left */
+.hero::before{
+  left: 0;
+  background-image: url("assets/lab.jpg");
+  /* soften toward the middle */
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+/* HUSKIES — right */
+.hero::after{
+  right: 0;
+  background-image: url("assets/hoodie.jpg");
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+/* Subtle center veil to ensure headline contrast */
+.hero::marker{ display:none; } /* just to avoid Safari quirks */
+.hero > .veil{ display:none; }  /* placeholder if you had one */
+.hero::selection{ background:transparent; }
+
+/* A gentle center gradient overlay for readability */
+.hero::after,
+.hero::before{
+  /* keep the images slightly dimmer in dark mode automatically */
+}
+.hero::after + .center-fade{ display:none; }
+
+.hero .hero-text{ position: relative; }
+
+/* Add a middle overlay using an extra pseudo-element on the container */
+.hero .hero-inner::after{
+  content:"";
+  position: absolute;
+  inset: -20px;                  /* bleed a bit to avoid edges */
+  z-index: -1;                   /* behind text, above photos */
+  background:
+    radial-gradient(60% 50% at 50% 50%, rgba(0,0,0,.35), transparent 60%);
+  pointer-events: none;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 860px){
+  .hero{ min-height: clamp(320px, 48vh, 520px); }
+  .hero::before, .hero::after{ width: 60%; opacity: .28; }
+}
+@media (max-width: 560px){
+  /* On small screens let each photo take more room but fade more */
+  .hero::before, .hero::after{ width: 65%; opacity: .24; }
+  /* slightly stronger center veil for small screens */
+  .hero .hero-inner::after{
+    background: radial-gradient(70% 55% at 50% 50%, rgba(0,0,0,.42), transparent 60%);
+  }
+}
 
 .hero-orb{width:320px; height:320px; border-radius:50%;
   background:radial-gradient(circle at 30% 30%, rgba(125,211,252,.7), rgba(192,132,252,.6) 45%, transparent 60%);
@@ -124,18 +207,4 @@ ul{padding-left:18px}
   .navlinks.open{display:flex}
   .navlinks li{width:100%}
   .navlinks a, .navlinks .toggle{width:100%; display:flex; justify-content:center}
-}
-.section-image img {
-  display: block;
-  margin: 0 auto;          /* centers the image */
-  max-width: 280px;        /* keep image small, adjust as you like */
-  width: 100%;             /* responsive for smaller screens */
-  height: auto;            /* keeps aspect ratio */
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
-}
-
-.section-image img:hover {
-  transform: scale(1.05);
 }
