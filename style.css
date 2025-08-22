@@ -125,3 +125,31 @@ ul{padding-left:18px}
   .navlinks li{width:100%}
   .navlinks a, .navlinks .toggle{width:100%; display:flex; justify-content:center}
 }
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.hero-image img.half {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img.half:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.hero-image img.left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.hero-image img.right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
