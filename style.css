@@ -131,7 +131,7 @@ ul{padding-left:18px}
 
 /* Small circular image */
 .profile-toggle.nav-avatar .profile{
-  width:60px; height:60px;
+  width:70px; height:70px;
   border-radius:50%;
   overflow:hidden; position:relative;
   border:1px solid var(--card-border);
