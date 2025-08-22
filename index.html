@@ -230,5 +230,30 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+        <script>
+  // --- Morphing profile: persisted mode ---
+  (function(){
+    const labImg     = document.querySelector('.photo-lab');
+    const sportsImg  = document.querySelector('.photo-sports');
+    const btns       = document.querySelectorAll('.mode-btn');
+
+    function setMode(mode){
+      const isLab = mode === 'lab';
+      labImg.classList.toggle('visible', isLab);
+      sportsImg.classList.toggle('visible', !isLab);
+      btns.forEach(b=>{
+        const active = b.dataset.mode === mode;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      localStorage.setItem('profileMode', mode);
+    }
+
+    // Init from saved preference
+    setMode(localStorage.getItem('profileMode') || 'lab');
+
+    btns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+  })();
+</script>
 </body>
 </html>
