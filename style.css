@@ -10,7 +10,7 @@ html,body{margin:0;padding:0}
   --ease: cubic-bezier(.2,.8,.2,1);
 }
 
-/* Light mode (auto). Manual override via .theme-dark is supported. */
+/* Light mode (auto) */
 @media (prefers-color-scheme: light){
   :root{
     --bg:#f6f7fb; --bg-2:#eef1f7; --text:#0e1726; --muted:#495566;
@@ -57,35 +57,37 @@ body::before{
 .navlinks a.active{background:rgba(125,211,252,.22)}
 .hamburger{display:none; background:var(--card); border:1px solid var(--card-border); color:var(--text); border-radius:12px; padding:8px 12px}
 
-/* ===== Hero ===== */
-.hero{position:relative; overflow:hidden; padding:48px 0 24px}
-.hero-inner{display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center}
-.hero h1{margin:0 0 6px 0; font-size:clamp(28px,4vw,40px); font-weight:800;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; color:transparent}
-.subtitle{margin:0 0 14px 0; color:var(--muted)}
-.cta{display:flex; gap:10px; flex-wrap:wrap}
-.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 16px; border-radius:12px; border:1px solid var(--card-border); background:var(--card); color:var(--text); text-decoration:none; transition:transform .2s var(--ease), background .2s var(--ease); backdrop-filter:blur(8px)}
-.btn:hover{transform:translateY(-1px)}
-.btn.ghost{background:transparent}
-.btn.tiny{padding:6px 10px; font-size:13px}
-
-/* A gentle center gradient overlay for readability */
-.hero .hero-text{ position: relative; }
-.hero .hero-inner::after{
-  content:""; position:absolute; inset:-20px; z-index:-1;
-  background: radial-gradient(60% 50% at 50% 50%, rgba(0,0,0,.35), transparent 60%);
-  pointer-events:none;
+/* ===== Hero (avatar sits beside heading) ===== */
+.hero{position:relative; overflow:hidden; padding:72px 0 36px}
+.hero-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
 }
+.hero-text{ flex:1 1 420px; }
+.hero h1{
+  margin:0 0 6px 0; font-size:clamp(32px,4.4vw,44px); font-weight:800;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; color:transparent;
+}
+.subtitle{margin:0 0 2px 0; color:var(--muted); font-size:clamp(15px,1.4vw,18px)}
 
-/* Old orb (kept but not used) */
-.hero-orb{width:320px; height:320px; border-radius:50%;
-  background:radial-gradient(circle at 30% 30%, rgba(125,211,252,.7), rgba(192,132,252,.6) 45%, transparent 60%);
-  filter:blur(18px); animation:float 10s ease-in-out infinite alternate; justify-self:end}
-@keyframes float{to{transform:translateY(-16px) translateX(10px)}}
-
-/* ===== Theme toggle ===== */
-.toggle{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--card-border); background:var(--card); color:var(--text); cursor:pointer}
-.toggle .dot{width:16px; height:16px; border-radius:50%; background:var(--accent-2)}
+/* ===== Profile toggle (hero) ===== */
+.profile-toggle{ flex:0 0 auto; text-align:center; }
+.profile{
+  position:relative; width:180px; height:180px; border-radius:50%;
+  overflow:hidden; border:1px solid var(--card-border); box-shadow:var(--shadow); background:var(--card);
+  margin:0 auto 10px;
+}
+.profile .photo{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:50%;
+  opacity:0; transition:opacity .45s var(--ease);
+}
+.profile .photo.visible{ opacity:1; }
+.modes{ display:flex; gap:8px; background:var(--card); border:1px solid var(--card-border); border-radius:999px; padding:4px; }
+.mode-btn{
+  padding:6px 12px; border-radius:999px; border:0; cursor:pointer;
+  background:transparent; color:var(--text); font-weight:600; font-size:13px;
+}
+.mode-btn.active{ background:rgba(125,211,252,.22); }
+.mode-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 
 /* ===== Cards & section headings ===== */
 .card{background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); box-shadow:var(--shadow); padding:var(--pad); margin:18px 0}
@@ -99,7 +101,7 @@ h2 .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(9
 .project-list{display:grid; gap:14px}
 .project{padding:16px; border-radius:16px; border:1px solid var(--card-border); background:rgba(255,255,255,.04); transition:transform .22s var(--ease), border-color .22s var(--ease), background .22s var(--ease)}
 .project:hover{transform:translateY(-2px); border-color:rgba(125,211,252,.35); background:rgba(125,211,252,.06)}
-.project h3{margin:6px 0 8px; font-size:18px}
+.project h3, .project h4{margin:6px 0 8px; font-size:18px}
 .project a{text-decoration:none; color:var(--text); border-bottom:1px dashed transparent}
 .project a:hover{color:var(--link); border-color:var(--link)}
 .project .badges{margin-bottom:6px}
@@ -124,8 +126,8 @@ ul{padding-left:18px}
 
 /* ===== Responsive ===== */
 @media (max-width:860px){
-  .hero-inner{grid-template-columns:1fr; gap:12px}
-  .hero-orb{justify-self:center; width:260px; height:260px}
+  .hero-inner{flex-direction:column; text-align:center}
+  .profile{width:160px; height:160px}
 }
 @media (max-width:760px){
   .hamburger{display:block}
@@ -133,58 +135,4 @@ ul{padding-left:18px}
   .navlinks.open{display:flex}
   .navlinks li{width:100%}
   .navlinks a, .navlinks .toggle{width:100%; display:flex; justify-content:center}
-}
-
-/* ============================
-   Avatar Morphing in the Nav (Option B)
-   ============================ */
-
-/* The avatar block must be inside .nav-inner and have .nav-avatar */
-.profile-toggle.nav-avatar{
-  position:absolute;
-  right:0;                 /* align to right edge of nav */
-  bottom:-72px;            /* hangs just below nav */
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:6px;
-  z-index:20;
-}
-
-/* Circle image container */
-.profile-toggle.nav-avatar .profile{
-  width:88px; height:88px; border-radius:50%;
-  overflow:hidden; position:relative;
-  border:1px solid var(--card-border);
-  box-shadow:0 2px 6px rgba(0,0,0,.3);
-  background:var(--card);
-}
-
-/* Two stacked photos for crossfade */
-.profile-toggle.nav-avatar .photo{
-  position:absolute; inset:0;
-  width:100%; height:100%; object-fit:cover; border-radius:50%;
-  opacity:0; transition:opacity .5s ease-in-out;
-}
-.profile-toggle.nav-avatar .photo.visible{ opacity:1; }
-
-/* Lab | Sports toggle */
-.profile-toggle.nav-avatar .modes{
-  display:flex; gap:6px;
-  background:rgba(255,255,255,.08);
-  border-radius:20px; padding:3px 6px; margin-top:4px;
-}
-.profile-toggle.nav-avatar .mode-btn{
-  border:none; background:transparent; color:#ddd;
-  font-size:.8rem; padding:3px 8px; border-radius:12px; cursor:pointer;
-  transition:background .3s, color .3s;
-}
-.profile-toggle.nav-avatar .mode-btn.active{ background:#2563eb; color:#fff; }
-
-/* Give hero breathing room so content doesn't collide with avatar */
-.hero{ padding-top:28px; }
-
-/* Hide avatar on smaller screens for cleanliness */
-@media (max-width:900px){
-  .profile-toggle.nav-avatar{ display:none; }
 }
