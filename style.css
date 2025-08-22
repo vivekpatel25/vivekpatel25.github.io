@@ -125,13 +125,12 @@ ul{padding-left:18px}
   .navlinks li{width:100%}
   .navlinks a, .navlinks .toggle{width:100%; display:flex; justify-content:center}
 }
-.section-image {
-  text-align: center;
-  margin: 15px 0;
-}
-
 .section-image img {
-  max-width: 250px;   /* not too big */
+  display: block;
+  margin: 0 auto;          /* centers the image */
+  max-width: 280px;        /* keep image small, adjust as you like */
+  width: 100%;             /* responsive for smaller screens */
+  height: auto;            /* keeps aspect ratio */
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
   transition: transform 0.3s ease;
