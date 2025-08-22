@@ -16,9 +16,7 @@
   <nav class="topnav">
     <div class="nav-inner container">
       <a href="#top" class="brand"><span class="logo">👋</span><span>Vivek Patel</span></a>
-
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
-
       <ul class="navlinks" id="navlinks">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -29,91 +27,75 @@
     </div>
   </nav>
 
-  <section class="hero">
-  <div class="hero-text">
-    <h1>Hi, I'm Vivek Patel</h1>
-    <p>Certified Google Data Analyst • Chemical Lab Technologist</p>
-  </div>
-
-  <div class="hero-image">
-    <img id="profileImage" src="assets/lab.jpg" alt="Profile">
-    <div class="toggle-buttons">
-      <button onclick="setImage('lab')" class="active">Lab</button>
-      <button onclick="setImage('sports')">Sports</button>
+  <!-- Hero -->
+  <header id="top" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Hi, I'm Vivek Patel</h1>
+        <p class="subtitle">Certified Google Data Analyst • Chemical Lab Technologist</p>
+        <div class="cta">
+          <a href="#projects" class="btn">See Projects</a>
+          <a href="#contact" class="btn ghost">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-orb" aria-hidden="true"></div>
     </div>
-  </div>
-</section>
-
-<script>
-  function setImage(type) {
-    const img = document.getElementById("profileImage");
-    const labBtn = document.querySelector(".toggle-buttons button:nth-child(1)");
-    const sportsBtn = document.querySelector(".toggle-buttons button:nth-child(2)");
-
-    if (type === "lab") {
-      img.src = "assets/lab.jpg";
-      labBtn.classList.add("active");
-      sportsBtn.classList.remove("active");
-    } else {
-      img.src = "assets/sports.jpg";
-      sportsBtn.classList.add("active");
-      labBtn.classList.remove("active");
-    }
-  }
-</script>
-
+  </header>
 
   <main class="container">
+
     <!-- About -->
-    <section id="about" class="about card reveal">
-      <h2><span class="dot"></span>🪪 About Me</h2>
-      <p><strong>Professional Focus:</strong> I am a Laboratory Technologist and Analyst by profession, with experience in chemical testing, quality control, and method development. My work in the lab has built a strong foundation in precision, problem-solving, and data integrity.</p>
-      <p><strong>Passion & Analytics:</strong> Beyond the lab, I am deeply passionate about data analytics and sports analytics. I enjoy transforming raw numbers into meaningful insights, whether through advanced statistical analysis, performance breakdowns, or building tools that help teams and organizations make smarter decisions.</p>
-    </section>
+   <section id="about" class="about card reveal">
+  <h2><span class="dot"></span>🪪 About Me</h2>
+  
+  <p><strong>Professional Focus:</strong> I am a Laboratory Technologist and Analyst by profession, with experience in chemical testing, quality control, and method development. My work in the lab has built a strong foundation in precision, problem-solving, and data integrity.</p>
+  
+  <p><strong>Passion & Analytics:</strong> Beyond the lab, I am deeply passionate about data analytics and sports analytics. I enjoy transforming raw numbers into meaningful insights, whether through advanced statistical analysis, performance breakdowns, or building tools that help teams and organizations make smarter decisions.</p>
+</section>
+
 
     <!-- Projects -->
-    <section id="projects" class="projects card reveal">
-      <h2><span class="dot"></span>🗂 Projects</h2>
+   <section id="projects" class="projects card reveal">
+  <h2><span class="dot"></span>🗂 Projects</h2>
+  
+  <!-- Lab Work Section -->
+  <h3>🔬 Lab & Research Work</h3>
+  <div class="project">
+    <h4><a href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-by-NaOH-Ethanol-2508a408c92680aa85e9c399fcadd3ce?source=copy_link" target="_blank">📄 Acid Number in Bitumen – NaOH–Ethanol Study Paper</a></h4>
+    <p>Technical study evaluating NaOH–ethanol as a practical alternative to ASTM D664 for acid number determination in bitumen. Includes method setup, QC trends, matrix spike recovery, and solvent considerations.</p>
+  </div>
+  
+  <div class="project">
+    <h4><a href="https://www.notion.so/Breaking-Up-with-TCE-Evaluating-Toluene-as-a-Safer-Solvent-for-UVF-and-Oil-Grease-Analysis-2238a408c926802390e8eedfb12b4824?source=copy_link" target="_blank">🧪 TCE vs Toluene Research Article</a></h4>
+    <p>In-depth experimental comparison of TCE and Toluene for oil & grease and UVF analysis. Includes method design, results, FTIR challenges, and safer solvent alternatives.</p>
+  </div>
 
-      <!-- Lab Work Section -->
-      <h3>🔬 Lab & Research Work</h3>
-      <div class="project">
-        <h4><a href="https://www.notion.so/Determining-Acid-Number-in-Bitumen-by-Potentiometric-Titration-by-NaOH-Ethanol-2508a408c92680aa85e9c399fcadd3ce?source=copy_link" target="_blank">📄 Acid Number in Bitumen – NaOH–Ethanol Study Paper</a></h4>
-        <p>Technical study evaluating NaOH–ethanol as a practical alternative to ASTM D664 for acid number determination in bitumen. Includes method setup, QC trends, matrix spike recovery, and solvent considerations.</p>
-      </div>
+  <!-- Sports Analytics Section -->
+  <h3>🏀🏐🏏 Sports Analytics</h3>
+<div class="project">
+    <h4><a href="https://medium.com/@vivekjpatel12/beyond-the-box-score-u-sports-basketball-2024-25-honors-f3e73432ee8c" target="_blank">🏀 Beyond the Box Score: U SPORTS Basketball 2024–25 Honors</a></h4>
+    <p>A data-driven look at the season’s brightest stars — from offensive engines and long-range snipers to rim protectors and hustle kings.</p>
+  </div>
 
-      <div class="project">
-        <h4><a href="https://www.notion.so/Breaking-Up-with-TCE-Evaluating-Toluene-as-a-Safer-Solvent-for-UVF-and-Oil-Grease-Analysis-2238a408c926802390e8eedfb12b4824?source=copy_link" target="_blank">🧪 TCE vs Toluene Research Article</a></h4>
-        <p>In-depth experimental comparison of TCE and Toluene for oil & grease and UVF analysis. Includes method design, results, FTIR challenges, and safer solvent alternatives.</p>
-      </div>
+  <div class="project">
+    <h4><a href="https://medium.com/@vivekjpatel12/the-stat-sheet-speaks-u-sports-volleyball-2024-25-honors-b4854fd52160" target="_blank">🏐 The Stat Sheet Speaks: U SPORTS Volleyball 2024–25 Honors</a></h4>
+    <p>Highlighting the top performers across U SPORTS volleyball, from all-around impact to defensive anchors and serving specialists.</p>
+  </div>
+  <div class="project">
+    <h4><a href="https://medium.com/@vivekjpatel12/ipl-powerplay-paradox-1b043ea452d0" target="_blank">📊 IPL Powerplay Analysis (Medium Article)</a></h4>
+    <p>Deep analysis of powerplay trends in IPL cricket, including comeback probabilities, collapse patterns, and toss impacts using real data visualizations.</p>
+  </div>
+<div class="project">
+    <h4><a href="https://nba-simulator.streamlit.app" target="_blank">🏀 NBA 5v5 Stat-Based Simulator</a></h4>
+    <p>Simulate games based on real NBA stats using a Flask + Streamlit app with player dropdowns and smart logic.</p>
+  </div>
 
-      <!-- Sports Analytics Section -->
-      <h3>🏀🏐🏏 Sports Analytics</h3>
-      <div class="project">
-        <h4><a href="https://medium.com/@vivekjpatel12/beyond-the-box-score-u-sports-basketball-2024–25-honors-f3e73432ee8c" target="_blank">🏀 Beyond the Box Score: U SPORTS Basketball 2024–25 Honors</a></h4>
-        <p>A data-driven look at the season’s brightest stars — from offensive engines and long-range snipers to rim protectors and hustle kings.</p>
-      </div>
-
-      <div class="project">
-        <h4><a href="https://medium.com/@vivekjpatel12/the-stat-sheet-speaks-u-sports-volleyball-2024–25-honors-b4854fd52160" target="_blank">🏐 The Stat Sheet Speaks: U SPORTS Volleyball 2024–25 Honors</a></h4>
-        <p>Highlighting the top performers across U SPORTS volleyball, from all-around impact to defensive anchors and serving specialists.</p>
-      </div>
-
-      <div class="project">
-        <h4><a href="https://medium.com/@vivekjpatel12/ipl-powerplay-paradox-1b043ea452d0" target="_blank">📊 IPL Powerplay Analysis (Medium Article)</a></h4>
-        <p>Deep analysis of powerplay trends in IPL cricket, including comeback probabilities, collapse patterns, and toss impacts using real data visualizations.</p>
-      </div>
-
-      <div class="project">
-        <h4><a href="https://nba-simulator.streamlit.app" target="_blank">🏀 NBA 5v5 Stat-Based Simulator</a></h4>
-        <p>Simulate games based on real NBA stats using a Flask + Streamlit app with player dropdowns and smart logic.</p>
-      </div>
-
-      <div class="project">
-        <h4><a href="https://cricsimulator.streamlit.app" target="_blank">🏏 Cricket Score Projector</a></h4>
-        <p>Project second innings par scores with smart logic on Streamlit.</p>
-      </div>
-    </section>
+  <div class="project">
+    <h4><a href="https://cricsimulator.streamlit.app" target="_blank">🏏 Cricket Score Projector</a></h4>
+    <p>Project second innings par scores with smart logic on Streamlit.</p>
+  </div>
+  
+</section>
 
     <!-- Certifications -->
     <section id="certs" class="certs card reveal">
@@ -143,7 +125,7 @@
   <!-- Back to top -->
   <button id="toTop" class="to-top" aria-label="Back to top">↑</button>
 
-  <!-- Scripts -->
+  <!-- Scripts: theme, filters, reveal, scrollspy, progress, misc -->
   <script>
     // Persisted theme toggle
     const root = document.documentElement;
@@ -161,9 +143,10 @@
       const open = links.classList.toggle('open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
+    // Close nav on link click (mobile)
     [...links.querySelectorAll('a')].forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-    // Smooth scroll
+    // Smooth scroll (CSS handles most; ensure hash updates reliably)
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const id = a.getAttribute('href');
@@ -175,9 +158,39 @@
       });
     });
 
+    // Filter chips
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.project');
+    chips.forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        chips.forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        const f = chip.dataset.filter;
+        cards.forEach(card=>{
+          const tags = card.dataset.tags.split(',');
+          const show = f==='all' || tags.includes(f);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // Expand/collapse blurbs
+    document.querySelectorAll('.more-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const p = btn.closest('.project').querySelector('.clamp');
+        p.classList.toggle('expanded');
+        btn.textContent = p.classList.contains('expanded') ? 'Show less' : 'Read more';
+      });
+    });
+
     // Reveal on scroll
     const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target); // reveal once
+        }
+      });
     }, {threshold: 0.12});
     document.querySelectorAll('.reveal, .project.reveal').forEach(el=>io.observe(el));
 
@@ -208,29 +221,6 @@
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <script>
-    // --- Morphing profile: persisted mode ---
-    (function(){
-      const labImg     = document.querySelector('.photo-lab');
-      const sportsImg  = document.querySelector('.photo-sports');
-      const btns       = document.querySelectorAll('.mode-btn');
-
-      function setMode(mode){
-        const isLab = mode === 'lab';
-        labImg.classList.toggle('visible', isLab);
-        sportsImg.classList.toggle('visible', !isLab);
-        btns.forEach(b=>{
-          const active = b.dataset.mode === mode;
-          b.classList.toggle('active', active);
-          b.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        localStorage.setItem('profileMode', mode);
-      }
-      setMode(localStorage.getItem('profileMode') || 'lab');
-      btns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
-    })();
   </script>
 </body>
 </html>
